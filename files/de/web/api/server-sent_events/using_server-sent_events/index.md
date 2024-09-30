@@ -49,7 +49,15 @@ Dieser Code hört auf eingehende `message`-Ereignisse und fügt den Nachrichtent
 
 Nachrichten vom Server, die ein `event`-Feld definiert haben, werden als Ereignisse mit dem im `event` angegebenen Namen empfangen. Zum Beispiel:
 
-{{code("ef5a59a")}}
+```js
+evtSource.addEventListener("ping", (event) => {
+  const newElement = document.createElement("li");
+  const eventList = document.getElementById("list");
+  const time = JSON.parse(event.data).time;
+  newElement.textContent = `ping at ${time}`;
+  eventList.appendChild(newElement);
+});
+```
 
 Dieser Code wird aufgerufen, wann immer der Server eine Nachricht mit dem `event`-Feld `ping` sendet; er parst dann das JSON im `data`-Feld und gibt diese Information aus.
 
