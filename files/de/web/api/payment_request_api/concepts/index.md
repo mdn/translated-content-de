@@ -35,6 +35,7 @@ Zahlungshandler werden durch **Zahlungsmethoden-Identifikatoren** identifiziert,
 Standardisierte Zahlungsmethoden-Identifikatoren sind diejenigen, die im [Zahlungsmethoden-Register](https://www.w3.org/TR/payment-method-id/#registry) aufgeführt sind.
 
 - `secure-payment-confirmation`
+
   - : Identifiziert die [Secure Payment Confirmation](https://w3c.github.io/secure-payment-confirmation/) Methode. Die Zahlungsanfragedaten für diese Methode werden vom [`SecurePaymentConfirmationRequest`](/de/docs/Web/API/SecurePaymentConfirmationRequest) Wörterbuch definiert. Für weitere Informationen siehe [Using Secure Payment Confirmation](/de/docs/Web/API/Payment_Request_API/Using_secure_payment_confirmation).
 
 - `basic-card`
@@ -77,7 +78,7 @@ Daher ist es wichtig zu beachten, dass der [User-Agent](/de/docs/Glossary/user_a
 
 ## Spezifikationen
 
-{{Spezifikationen}}
+{{Specifications}}
 
 ## Siehe auch
 

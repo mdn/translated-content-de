@@ -68,7 +68,7 @@ input[type="checkbox"]:checked {
 
 ## Spezifikationen
 
-{{Spezifikationen}}
+{{Specifications}}
 
 ## Browser-Kompatibilität
 
